@@ -294,6 +294,14 @@ export interface ChaincodeEvent {
 	payload: Buffer;
 }
 
+export class BlockDecoder {
+	public static decode(blockBuf: Buffer): fabproto6.common.IBlock;
+	public static decodeBlock(blockProto: fabproto6.common.IBlock): fabproto6.common.IBlock;
+	public static decodeFilteredBlock(filteredBlockProto: fabproto6.common.IFilteredBlock): fabproto6.common.IFilteredBlock;
+	public static decodeBlockWithPrivateData(blockAndPrivateDataProto: fabproto6.common.IBlockAndPrivateData): fabproto6.common.IBlockAndPrivateData;
+	public static decodeTransaction(processedTransactionBuf: Buffer): fabproto6.common.IProcessedTransaction;
+}
+
 export type BlockType = 'filtered' | 'full' | 'private';
 
 export class EventService extends ServiceAction {
